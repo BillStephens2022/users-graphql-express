@@ -1,5 +1,7 @@
 const express = require('express');
-const expressGraphQL = require('express-graphql');
+const expressGraphQL = require('express-graphql').graphqlHTTP;
+
+const PORT = 4000;
 
 const app = express();
 
@@ -7,8 +9,6 @@ app.use('/graphql', expressGraphQL({
   graphiql: true
 }));
 
-const PORT = 4000;
-
 app.listen(PORT, () => {
-    console.log(`Listening on http://localhost:${PORT}`);
+  console.log(`Listening on http://localhost:${PORT}`);
 });
